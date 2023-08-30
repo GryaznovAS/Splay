@@ -26,16 +26,11 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#immediate-tasks">Immediate Tasks</a></li>
         <li><a href="#used-technologies">Used Technologies</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#clone-repository">Clone Repository</a></li>
-      </ul>
-    </li>
+    <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#app-usage">App Usage</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -56,7 +51,7 @@ Of course, my task is not only to develop the algorithm of the application itsel
 
 
 
-## Immediate Tasks
+### Immediate Tasks
 
 * Setting up a GitHub repository.
 * Development of the project structure.
@@ -146,7 +141,7 @@ A little bit about the user interface:
 
 * You can also move the vertices by holding them and move the tree around the window.
 
-<img src="https://media.discordapp.net/attachments/760917929126133834/1146507861132853258/image.png" alt="Main" width="768" height="387">
+<img src="https://media.discordapp.net/attachments/760917929126133834/1146507861132853258/image.png" alt="Main" width="768" height="387" align="center">
 
 <p align="right">(<a href="#splay">Back to top</a>)</p>
 
