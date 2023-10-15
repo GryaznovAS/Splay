@@ -134,14 +134,16 @@ Before launching the application, you need to build it:
 
 A little bit about the user interface:
 
-* In the upper left corner there are three fields with buttons: "add vertex", "remove vertex" and "find vertex".
-* In the upper right corner there are three buttons: "save" (tree), "delete" (tree) and "change interface color".
-* In the lower left corner there are buttons for zooming in and out of the tree.
-* In the lower right corner there is a button that will take you to the portal with information about the project, to this repository.
+* "Add" button - add vertex to splay tree.
+* "Del" button - delete vertex from splay tree.
+* "Find" button - find vertex in splay tree.
+* "Reset Positions" button - reset positions of all vertexes in splay tree.
+* "Save Tree" button - save your splay tree.
+* "Upload Tree" button - upload your saved splay tree.
 
 * You can also move the vertices by holding them and move the tree around the window.
 
-<img src="https://cdn.discordapp.com/attachments/760917929126133834/1163235650674380930/image.png?ex=653ed69e&is=652c619e&hm=de42831122988dd4f9e31c49b2e647fa61aff7163dfee34669e6d371adcaec59&" alt="Main" width="768" height="387" align="center">
+<img src="https://cdn.discordapp.com/attachments/760917929126133834/1163237595376001034/image.png?ex=653ed86e&is=652c636e&hm=2199998ac5230a4f7029ec4e96de0fb0ae795fef89e71cffac5a7f302d6a5396&" alt="Main" width="768" height="550" align="center">
 
 <p align="right">(<a href="#splay">Back to top</a>)</p>
 
