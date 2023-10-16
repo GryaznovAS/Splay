@@ -1,0 +1,4 @@
+package splaytree
+
+class SplayTreeTests {
+}

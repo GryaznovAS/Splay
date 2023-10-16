@@ -11,7 +11,7 @@ import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import binarysearchtrees.BinarySearchTree
-import binarysearchtrees.Vertex
+import binarysearchtrees.splaytree.SplayVertex
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -30,7 +30,7 @@ fun TreeView(
         }
     ) {
         tree.getRoot()?.let {
-            val rootState = remember(indicator.value) { mutableStateOf(it as Vertex<String, Position>) }
+            val rootState = remember(indicator.value) { mutableStateOf(it as SplayVertex<String, Position>) }
             VertexView(rootState, vertexSize, scrollDelta)
         }
     }

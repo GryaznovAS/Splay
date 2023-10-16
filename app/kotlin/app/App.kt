@@ -9,8 +9,7 @@ import app.view.MainWindow
 import app.view.Position
 import app.view.defaultVertexSize
 import app.view.setTreePositions
-import binarysearchtrees.binarysearchtree.SimpleBinarySearchTree
-import binarysearchtrees.avltree.AVLTree
+import binarysearchtrees.splaytree.SplayTree
 
 fun main() {
     application {
@@ -23,12 +22,12 @@ fun main() {
             )
         ) {
             //
-            val tree = AVLTree<String, Position>()
-            tree["1"] = Position(0.dp, 0.dp)
-            tree["2"] = Position(0.dp, 0.dp)
-            tree["3"] = Position(0.dp, 0.dp)
-            tree["4"] = Position(0.dp, 0.dp)
-            tree["5"] = Position(0.dp, 0.dp)
+            val tree = SplayTree<String, Position>()
+            tree.insert("1", Position(0.dp, 0.dp))
+            tree.insert("2", Position(0.dp, 0.dp))
+            tree.insert("3", Position(0.dp, 0.dp))
+            tree.insert("4", Position(0.dp, 0.dp))
+            tree.insert("5", Position(0.dp, 0.dp))
             //
             setTreePositions(tree, defaultVertexSize, DpOffset(10.dp, 10.dp))
             //

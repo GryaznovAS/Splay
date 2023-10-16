@@ -1,0 +1,4 @@
+package sqlrepo
+
+class SQLRepoTest {
+}

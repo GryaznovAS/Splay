@@ -7,12 +7,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.zIndex
-import binarysearchtrees.Vertex
+import binarysearchtrees.splaytree.SplayVertex
 
 @Composable
 fun Edge(
-    start: Vertex<String, Position>,
-    end: Vertex<String, Position>,
+    start: SplayVertex<String, Position>,
+    end: SplayVertex<String, Position>,
     vertexSize: Dp,
     scrollDelta: ScrollDelta,
     modifier: Modifier = Modifier
