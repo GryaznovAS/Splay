@@ -37,6 +37,9 @@ class SplayTreeTests {
         value = key * 95
         tree.insert(key, value)
         size = tree.size - 1
+        assertFalse(tree.remove(key, value + 10))
+        assertTrue(tree.remove(key, value))
+        assertFalse(tree.remove(key, value))
         assertEquals(null, tree.find(key))
         assertEquals(size, tree.size)
         assertTrue(isSplayTree(tree))
@@ -80,6 +83,7 @@ class SplayTreeTests {
             it.key
         } ?: -25
         size = tree.size - 1
+        assertTrue(tree.remove(oldKey, value))
         assertNotEquals(oldKey, tree.getRoot()?.key)
         assertEquals(size, tree.size)
         assertTrue(isSplayTree(tree))

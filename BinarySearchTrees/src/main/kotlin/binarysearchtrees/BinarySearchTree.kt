@@ -14,6 +14,8 @@ interface BinarySearchTree<K : Comparable<K>, V> {
 
     fun remove(key: K): V?
 
+    fun remove(key: K, value: V): Boolean
+
     fun getRoot(): SplayVertex<K, V>?
 
     operator fun iterator(): Iterator<SplayVertex<K, V>>

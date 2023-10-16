@@ -175,6 +175,18 @@ class SplayTree<K : Comparable<K>, V> : BinarySearchTree<K, V> {
         return result
     }
 
+    override fun remove(key: K, value: V): Boolean {
+        val result = find(key)
+        return if (result != null) {
+            root?.left?.parent = null
+            root?.right?.parent = null
+            root = merge(root?.left, root?.right)
+            --size
+            ++modCount
+            true
+        } else false
+    }
+
     protected class SplayTreeIterator<K : Comparable<K>, V>(
         root: SplayVertex<K, V>?,
         private val getModCount: () -> Int
