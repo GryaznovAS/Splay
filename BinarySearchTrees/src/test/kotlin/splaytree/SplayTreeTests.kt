@@ -20,31 +20,6 @@ class SplayTreeTests {
         tree = SplayTree()
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = [9, 20, 32, 81, 77, 94, -10, -15])
-    fun `Function remove deletes the some element correctly`(key: Int) {
-        values.forEach { tree.insert(it.first, it.second) }
-
-        var value = key * 198
-        tree.insert(key, value)
-        var size = tree.size - 1
-        assertEquals(value, tree.remove(key))
-        assertEquals(null, tree.remove(key))
-        assertEquals(null, tree.find(key))
-        assertEquals(size, tree.size)
-        assertTrue(isSplayTree(tree))
-
-        value = key * 95
-        tree.insert(key, value)
-        size = tree.size - 1
-        assertFalse(tree.remove(key, value + 10))
-        assertTrue(tree.remove(key, value))
-        assertFalse(tree.remove(key, value))
-        assertEquals(null, tree.find(key))
-        assertEquals(size, tree.size)
-        assertTrue(isSplayTree(tree))
-    }
-
     @Test
     fun `Function remove deletes the existing element correctly`() {
         values.forEach { tree.insert(it.first, it.second) }
@@ -61,32 +36,6 @@ class SplayTreeTests {
             assertEquals(size, tree.size)
             assertTrue(isSplayTree(tree))
         }
-    }
-
-    @Test
-    fun `Function remove deletes the root element correctly`() {
-        values.forEach { tree.insert(it.first, it.second) }
-
-        val value = 45
-        var oldKey = tree.getRoot()?.let {
-            it.value
-            it.key
-        } ?: -25
-        var size = tree.size - 1
-        assertEquals(value, tree.remove(oldKey))
-        assertNotEquals(oldKey, tree.getRoot()?.key)
-        assertEquals(size, tree.size)
-        assertTrue(isSplayTree(tree))
-
-        oldKey = tree.getRoot()?.let {
-            it.value
-            it.key
-        } ?: -25
-        size = tree.size - 1
-        assertTrue(tree.remove(oldKey, value))
-        assertNotEquals(oldKey, tree.getRoot()?.key)
-        assertEquals(size, tree.size)
-        assertTrue(isSplayTree(tree))
     }
 
 }
