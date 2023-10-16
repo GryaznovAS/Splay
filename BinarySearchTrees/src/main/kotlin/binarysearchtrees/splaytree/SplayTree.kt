@@ -3,7 +3,7 @@ package binarysearchtrees.splaytree
 import binarysearchtrees.BinarySearchTree
 
 open class SplayTree<K : Comparable<K>, V> : BinarySearchTree<K, V> {
-    protected var root: SplayVertex<K, V>? = null
+    private var root: SplayVertex<K, V>? = null
     final override var size: Int = 0
         protected set
     protected var modCount: Int = 0

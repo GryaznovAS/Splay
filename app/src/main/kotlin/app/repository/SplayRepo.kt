@@ -26,7 +26,6 @@ class SplayRepo<ValueType>(
     fun get(name: String): Pair<SplayTree<String, ValueType>, String> {
         val jsonTree = Json.decodeFromString<JsonTree>(File(dirPath, "$name.json").readText())
         return Splay<ValueType>().apply {
-            jsonTree.root?.let { buildTree(it, deserializeValue) }
         } to jsonTree.settingsData
     }
 
@@ -63,9 +62,6 @@ data class JsonVertex(
 )
 
 private class Splay<ValueType> : SplayTree<String, ValueType>() {
-    fun buildTree(jsonVertex: JsonVertex, deserializeValue: (String) -> ValueType) {
-        root = jsonVertex.toVertex(deserializeValue)
-    }
 
     private fun JsonVertex.toVertex(deserializeValue: (String) -> ValueType): SplayVertex<String, ValueType> {
         val vertex = SplayVertex(key, deserializeValue(value))
