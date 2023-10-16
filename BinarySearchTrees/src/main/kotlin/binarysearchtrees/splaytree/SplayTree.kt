@@ -4,8 +4,23 @@ import binarysearchtrees.BinarySearchTree
 
 class SplayTree<K : Comparable<K>, V> : BinarySearchTree<K, V> {
     private var root: SplayVertex<K, V>? = null
+    final override var size: Int = 0
+        protected set
+    protected var modCount: Int = 0
+
+    override fun isEmpty(): Boolean = (root == null)
+
+    override fun clear() {
+        size = 0
+        root = null
+        ++modCount
+    }
 
     override fun getRoot(): SplayVertex<K, V>? = root
+
+    override fun iterator(): Iterator<SplayVertex<K, V>> {
+        return SplayTreeIterator(getRoot()) { modCount }
+    }
 
     private fun rotateLeft(vertex: SplayVertex<K, V>): SplayVertex<K, V> {
         val parent = vertex.parent
@@ -120,6 +135,8 @@ class SplayTree<K : Comparable<K>, V> : BinarySearchTree<K, V> {
         }
         if (currentVertex != null) {
             currentVertex.value = value
+            ++size
+            ++modCount
         } else {
             val newVertex = SplayVertex(key, value)
             newVertex.parent = parent
@@ -152,8 +169,48 @@ class SplayTree<K : Comparable<K>, V> : BinarySearchTree<K, V> {
             root?.left?.parent = null
             root?.right?.parent = null
             root = merge(root?.left, root?.right)
+            --size
+            ++modCount
         }
         return result
+    }
+
+    protected class SplayTreeIterator<K : Comparable<K>, V>(
+        root: SplayVertex<K, V>?,
+        private val getModCount: () -> Int
+    ) : Iterator<SplayVertex<K, V>> {
+        private val stack: MutableList<SplayVertex<K, V>> = mutableListOf()
+        private val expectedModCount: Int = getModCount()
+
+        init {
+            var vertex = root
+            while (vertex != null) {
+                stack.add(vertex)
+                vertex = vertex.left
+            }
+        }
+
+        override fun hasNext(): Boolean {
+            if (expectedModCount != getModCount()) {
+                throw ConcurrentModificationException()
+            } else {
+                return stack.isNotEmpty()
+            }
+        }
+
+        override fun next(): SplayVertex<K, V> {
+            if (expectedModCount != getModCount()) {
+                throw ConcurrentModificationException()
+            } else {
+                val vertex = stack.removeLast()
+                var nextVertex = vertex.right
+                while (nextVertex != null) {
+                    stack.add(nextVertex)
+                    nextVertex = nextVertex.left
+                }
+                return vertex
+            }
+        }
     }
 
 }
