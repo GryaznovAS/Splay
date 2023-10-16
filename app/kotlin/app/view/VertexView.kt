@@ -18,14 +18,12 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import binarysearchtrees.Vertex
-import binarysearchtrees.redblacktree.Vertex as RBVertex
-import binarysearchtrees.redblacktree.Vertex.Color as RBColor
+import binarysearchtrees.splaytree.SplayVertex
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun VertexView(
-    vertexState: MutableState<Vertex<String, Position>>,
+    vertexState: MutableState<SplayVertex<String, Position>>,
     vertexSize: Dp,
     scrollDelta: ScrollDelta,
     modifier: Modifier = Modifier

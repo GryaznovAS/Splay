@@ -25,8 +25,7 @@ import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.rememberWindowState
 import binarysearchtrees.BinarySearchTree
-import binarysearchtrees.binarysearchtree.SimpleBinarySearchTree
-import binarysearchtrees.redblacktree.RedBlackTree
+import binarysearchtrees.splaytree.SplayTree
 import java.awt.Dimension
 
 @OptIn(ExperimentalTextApi::class)
@@ -157,8 +156,8 @@ fun Panel(
             ) {
 
                 TreeButton("Add") {
-                    if (tree[it] == null) {
-                        tree[it] = Position(0.dp, 0.dp)
+                    if (tree.find(it) == null) {
+                        tree.insert(it, Position(0.dp, 0.dp))
                         setTreePositions(tree, defaultVertexSize, DpOffset(10.dp, 10.dp))
                         indicator.value = (indicator.value + 1) % 10
                     }
@@ -175,7 +174,7 @@ fun Panel(
                 Spacer(modifier = Modifier.height(20.dp))
 
                 TreeButton("Find") {
-                    tree[it]?.let { pos ->
+                    tree.find(it)?.let { pos ->
                         scrollDelta.x = -pos.x + 335.dp
                         scrollDelta.y = -pos.y + 335.dp
                     }

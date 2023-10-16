@@ -7,7 +7,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import binarysearchtrees.BinarySearchTree
-import binarysearchtrees.Vertex
+import binarysearchtrees.splaytree.SplayVertex
 
 class Position(
     x: Dp,
@@ -22,7 +22,7 @@ fun setTreePositions(tree: BinarySearchTree<String, Position>, vertexSize: Dp, o
 }
 
 private fun setVertexPosition(
-    vertex: Vertex<String, Position>,
+    vertex: SplayVertex<String, Position>,
     vertexSize: Dp,
     y: Dp,
     xOffset: Dp
